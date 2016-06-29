@@ -1,0 +1,67 @@
+<html>
+<head>
+<title>Easy Quadratic Factoring 01</title>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript" src="TermObjectsJavascript.js"></script>
+<link rel="stylesheet" type="text/css" href="ProblemPagesStyle.css">
+
+<script type="text/javascript">
+
+function toggle_visibility(id) {
+    var e = document.getElementById(id);
+    if (e.style.visibility == 'visible')
+        e.style.visibility = 'hidden';
+    else
+        e.style.visibility = 'visible';
+}
+
+function makeProblem() {
+	//numericalCoef, variableLatex, sidePosition, soloStatus, equationSide
+	//Most basic quadratic factoring.
+	var minimum = 1;
+	var maximum = 12;
+	
+	var x1 = randIntPN(minimum, maximum);
+	var x2 = randIntPN(minimum, maximum);
+	
+	var A = 1;
+	var B = x1 + x2;
+	var C = x1 * x2;
+	
+	var qTerm01 = new Term(A, "x^2", 0, false, 0);
+	var qTerm02 = new Term(B, "x", 1, false, 0);
+	var qTerm03 = new Term(C, "", 2, false, 0);
+	
+	var aTerm02 = new Term(x1, "", 1, false, 0);
+	var aTerm04 = new Term(x2, "", 1, false, 0);
+	
+	var questionLatex = "$$" + qTerm01.latexExpression() + qTerm02.latexExpression() + qTerm03.latexExpression() + "$$";
+	var answerLatex = "$$(x" + aTerm02.latexExpression() + ")(x" + aTerm04.latexExpression() + ")$$";
+	
+
+	document.getElementById("equationToSolve").innerHTML = questionLatex;
+	document.getElementById("answerPar").innerHTML = answerLatex;
+}
+
+</script>
+
+</head>
+
+<body onload="makeProblem()">
+
+	<p id="menuHeadings" class="menu"><a href="index.html">problem menu</a> | <a href="#" onclick="window.location.reload(true)">new problem</a></p>
+
+	<p id="instructions" class="basicText">Factor the expression below. Click on the expression to see the answer.</p>
+
+	<div id="questionDiv" class="question">
+		<a id="equationToSolve" href="#" onclick="toggle_visibility('answerDiv');"></a>
+	</div>
+
+	<div id="answerDiv" class="answer">
+		<p id="answerPar" class="answer"></p>
+	</div>
+
+</body>
+
+</html>

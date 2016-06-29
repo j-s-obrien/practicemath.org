@@ -1,0 +1,49 @@
+<html>
+<head>
+<title>MathJaxExperiment01</title>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript" src="TermObjectsJavascript.js"></script>
+<link rel="stylesheet" type="text/css" href="ProblemPagesStyle.css">
+
+<script type="text/javascript">
+
+function toggle_visibility(id) {
+    var e = document.getElementById(id);
+    if (e.style.visibility == 'visible')
+        e.style.visibility = 'hidden';
+    else
+        e.style.visibility = 'visible';
+}
+
+function makeProblem() {
+	//numericalCoef, variableLatex, sidePosition, soloStatus, equationSide
+
+	var questionLatex = "";
+	var answerLatex = "";
+
+	document.getElementById("equationToSolve").innerHTML = questionLatex;
+	document.getElementById("answerPar").innerHTML = answerLatex;
+}
+
+</script>
+
+</head>
+
+<body onload="makeProblem()">
+
+	<p id="menuHeadings" class="menu"><a href="index.html">problem menu</a> | <a href="#" onclick="window.location.reload(true)">new problem</a></p>
+
+	<p id="instructions" class="basicText">Factor the expression below. Click on the expression to see the answer.</p>
+
+	<div id="questionDiv" class="question">
+		<a id="equationToSolve" href="#" onclick="toggle_visibility('answerDiv');"></a>
+	</div>
+
+	<div id="answerDiv" class="answer">
+		<p id="answerPar" class="answer"></p>
+	</div>
+
+</body>
+
+</html>

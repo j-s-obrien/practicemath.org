@@ -1,0 +1,51 @@
+.title {
+	font-family: Times, "Times New Roman", serif;
+	font-style: italic;
+	text-align: center;
+}
+div.question {
+	font-size: 700%;
+	margin: 0.5em;
+	border-width: 1px;
+	border-color: black;
+	text-align: center;
+}
+div.answer {
+	font-size: 400%;
+	color: gray;
+	visibility: hidden;
+	text-align: center;
+	margin: 0em;
+	border: 1px;
+	border-color: black;
+}
+a:link, :visited, :hover {
+	color: #000000;
+}
+a:active {
+	color: red;
+}
+a.inactiveLink {
+	color: gray;
+}
+p.menu {
+	font-family: Helvetica, Arial, san-serif;
+}
+p.basicText {
+	font-family: Helvetica, Arial, san-serif;
+	text-align: center;
+}
+p.menuItem {
+	font-family: Helvetica, Arial, san-serif;
+	text-align: center;
+}
+p.attributions {
+	font-size: 75%;
+}
+div.menuColumns {
+	margin-left: 20%;
+	margin-right: 20%;
+	-webkit-column-count: 2; /* Chrome, Safari, Opera */
+    -moz-column-count: 2; /* Firefox */
+    column-count: 2;
+}

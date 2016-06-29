@@ -1,0 +1,71 @@
+<html>
+<head>
+<title>Quadratic Factoring Harder 02</title>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript" src="TermObjectsJavascript.js"></script>
+<link rel="stylesheet" type="text/css" href="ProblemPagesStyle.css">
+
+<script type="text/javascript">
+
+function toggle_visibility(id) {
+    var e = document.getElementById(id);
+    if (e.style.visibility == 'visible')
+        e.style.visibility = 'hidden';
+    else
+        e.style.visibility = 'visible';
+}
+
+function makeProblem() {
+	//numericalCoef, variableLatex, sidePosition, soloStatus, equationSide
+	//Most basic quadratic factoring.
+	var minimum = 1;
+	var maximum = 8;
+	
+	var f = randIntPN(minimum, maximum);
+	var g = randIntPN(minimum, maximum);
+	var h = randIntPN(minimum, maximum);
+	var i = randIntPN(minimum, maximum);
+	
+	var A = f * h;
+	var B = (i * f) + (g * h);
+	var C = g * i;
+	
+	var qTerm01 = new Term(A, "x^2", 0, false, 0);
+	var qTerm02 = new Term(B, "x", 1, false, 0);
+	var qTerm03 = new Term(C, "", 2, false, 0);
+	
+	var aTerm01 = new Term(f, "x", 0, false, 0);
+	var aTerm02 = new Term(g, "", 1, false, 0);
+	var aTerm03 = new Term(h, "x", 0, false, 0);
+	var aTerm04 = new Term(i, "", 1, false, 0);
+	
+	var questionLatex = "$$" + qTerm01.latexExpression() + qTerm02.latexExpression() + qTerm03.latexExpression() + "$$";
+	var answerLatex = "$$(" + aTerm01.latexExpression() + aTerm02.latexExpression() + ")(" + aTerm03.latexExpression() + aTerm04.latexExpression() + ")$$";
+	
+
+	document.getElementById("equationToSolve").innerHTML = questionLatex;
+	document.getElementById("answerPar").innerHTML = answerLatex;
+}
+
+</script>
+
+</head>
+
+<body onload="makeProblem()">
+
+	<p id="menuHeadings" class="menu"><a href="index.html">problem menu</a> | <a href="#" onclick="window.location.reload(true)">new problem</a></p>
+
+	<p id="instructions" class="basicText">Factor the expression below. Click on the expression to see the answer.</p>
+
+	<div id="questionDiv" class="question">
+		<a id="equationToSolve" href="#" onclick="toggle_visibility('answerDiv');"></a>
+	</div>
+
+	<div id="answerDiv" class="answer">
+		<p id="answerPar" class="answer"></p>
+	</div>
+
+</body>
+
+</html>
